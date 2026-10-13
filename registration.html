@@ -1,195 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: peachpuff;
-            background-size: cover;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 500px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            background-color: peachpuff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #555;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #286cd9;
-        }
-        a:link {
-            color: #007bff;
-            text-decoration: underline;
-        }
-        a:visited {
-            color: #0056b3;
-        }
-        a:hover {
-            color: #003d80;
-        }
-        .link-container {
-            text-align: center;
-            margin-top: 15px;
-        }
-    </style>
+    <title>Registration Form</title>
 </head>
+
 <body>
-    <div class="form-container">
-    <h2>Registration Form</h2>
-    <form id="registrationform" onsubmit="return validateForm()">
-    <!-- 1. Name (Text field)-->form-group">
-    <div class="form-group">
+    <h1>Registration Form</h1>
+    <form action="submit.php" method="post">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-        </div>
-        <!-- 2. Password(Password field) -->
-         <div class="form-group">
+        <input type="text" id="name" name="name" required><br><br>
+
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password">    
-         </div>
-         <!-- 3. Email (Text field) -->
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
-        </div>
-        <!-- 4. Phone number (Text field) -->
-        <div class="form-group">    
-            <label for="phone">Phone Number:</label>
-            <input type="text" id="phone" name="phone">
-        </div>  
-        <!-- 5. Gender (Radio buttons) -->
-        <div class="form-group inline-options">    
-            <label for="gender">Gender:</label>
-            <input type="radio" id="male" name="gender" value="male">
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Female</label>
-            <input type="radio" id="other" name="gender" value="other">
-            <label for="other">Other</label> 
-        </div>
-        <!-- 6. Date of Birth (3 select boxes) -->
-        <div class="form-group">
-            <label>Date of birth:</label>
-            <div class="dob-selects">
-                <select id="dob-day" name="day"></select>
-                <option value="">Day</option>
-                <!--sample days-->
-                <script>
-                    for(let i = 1; i <= 31; i++){
-                        document.write("<option value='"+i+"'>"+i+"</option>");
-                    }
-                </script>
-                </select>
-                <select id="dob-month" name="month"></select>
-                <option value="">Month</option>
-                <option value="1">January</option>
-                <option value="2">February</option>     
-                <option value="3">March</option>
-                <option value="4">April</option>        
-                <option value="5">May</option>
-                <option value="6">June</option>     
-                <option value="7">July</option>
-                <option value="8">August</option>   
-                <option value="9">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
-            </select>
-                <select id="dob-year" name="year"></select>
-                 <option value="">Year</option>
-                <!--sample years--> 
-                <script>
-                    for(let i =2026; i>=1900; i--){
-                        document.write("<option value='"+i+"'>"+i+"</option>");
-                    }
-                    </script>
-                    </select>
-                      </div>    
-                      <!-- 8. Address (Text field) -->
-                      <div class="form-group">
-                          <label for="address">Address:</label>
-                          <textarea id="address" name="address" rows="4" cols="50"></textarea>
-                      </div>
-                        <button type="submit">Submit</button>
-                          <div class="link-container">
-                         <a href="login.html">Already have an account?Login here.</a>
-                      </div>
-                      </form>
-                       </div>
-                       <!-- JavaScript for form validation -->
-                       <script>
-                        function validateForm() {
-                            var name = document.getElementById("name").value;
-                            var password = document.getElementById("password").value;
-                            var email = document.getElementById("email").value;
-                            var phone = document.getElementById("phone").value;
-                            var gender = document.querySelector('input[name="gender"]:checked');
-                            var dobDay = document.getElementById("dob-day").value;
-                            var dobMonth = document.getElementById("dob-month").value;
-                            var dobYear = document.getElementById("dob-year").value;
-                            var address = document.getElementById("address").value;
-                            // 1. Name validation: Alphabets only and length >= 6
-            const nameRegex = /^[A-Za-z]+$/;
-            if (name.length < 6 || !nameRegex.test(name)) {
-                alert("Name should contain alphabets only and must be at least 6 characters long.");
-                return false;
-            }
+        <input type="password" id="password" name="password" required><br><br>
 
-            // 2. Password validation: Length >= 6
-            if (password.length < 6) {
-                alert("Password should be at least 6 characters in length.");
-                return false;
-            }
+        <label for="email">E-mail:</label>
+        <input type="text" id="email" name="email" required><br><br>
 
-            // 3. E-mail ID validation: Standard pattern (name@domain.com)
-            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            if (!emailRegex.test(email)) {
-                alert("Please enter a valid E-mail ID following the standard pattern (name@domain.com).");
-                return false;
-            }
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" required><br><br>
 
-            // 4. Phone Number validation: 10 digits only
-            const phoneRegex = /^[0-9]{10}$/;
-            if (!phoneRegex.test(phone)) {
-                alert("Phone Number should contain exactly 10 digits.");
-                return false;
-            }
+        <label>Sex:</label>
+        <input type="radio" id="male" name="sex" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="sex" value="female">
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="sex" value="other">
+        <label for="other">Other</label><br><br>
 
-            alert("Registration Successful!");
-            return true;
-        }
+        <label for="dob">Date of Birth:</label>
+        <select id="day" name="day">
+            <option value="">Day</option>
+        </select>
+        <select id="month" name="month">
+            <option value="">Month</option>
+        </select>
+        <select id="year" name="year">
+            <option value="">Year</option>
+        </select><br><br>
+        <label>Languages known:</label>
+        <input type="checkbox" id="english" name="languages[]" value="english">
+        <label for="english">English</label>
+        <input type="checkbox" id="telugu" name="languages[]" value="telugu">
+        <label for="telugu">Telugu</label>
+        <input type="checkbox" id="hindi" name="languages[]" value="hindi">
+        <label for="hindi">Hindi</label>
+        <input type="checkbox" id="tamil" name="languages[]" value="tamil">
+        <label for="tamil">Tamil</label><br><br>
+
+        <label for="address">Address:</label><br>
+        <textarea id="address" name="address" rows="4" cols="50"></textarea><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
